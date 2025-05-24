@@ -19,7 +19,7 @@ test('סטאר X – רק בחירת צבע אגוז (מידה כבר מסומנ
 
   const priceText = await getVariationPrice(page);
   console.log('📦 סטאר X – אגוז + 57:', priceText);
-  expect(priceText).toContain('2,500');
+  expect(priceText).toContain('1,990');
 });
 
 // ✅ סטאר X – צבע שחור + מידה 48 => ₪ 1,199
