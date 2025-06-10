@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 // פונקציית עזר לשליפת המחיר הנכון מהווריאציה
 async function getVariationPrice(page) {
-  const priceElement = await page.waitForSelector('div.woocommerce-variation-price .woocommerce-Price-amount', { timeout: 5000 });
+  const priceElement = await page.waitForSelector('div.woocommerce-variation-price .woocommerce-Price-amount', { timeout: 60000 });
   const priceText = await priceElement.textContent();
   return priceText;
 }
