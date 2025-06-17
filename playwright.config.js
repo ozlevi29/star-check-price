@@ -1,6 +1,14 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
 
+export default defineConfig({
+  timeout: 120000, // ⏱ apply to all tests
+  use: {
+    actionTimeout: 0, // optional: disables action timeout
+    navigationTimeout: 120000,
+  },
+});
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv

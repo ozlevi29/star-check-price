@@ -2,14 +2,6 @@ const { test, expect } = require('@playwright/test');
 
 const time_out = 120000;
 
-export default defineConfig({
-  timeout: 120000, // ⏱ apply to all tests
-  use: {
-    actionTimeout: 0, // optional: disables action timeout
-    navigationTimeout: 120000,
-  },
-});
-
 // פונקציית עזר לשליפת המחיר הנכון מהווריאציה
 async function getVariationPrice(page) {
   await page.setDefaultTimeout(time_out);
