@@ -2,6 +2,14 @@ const { test, expect } = require('@playwright/test');
 
 const time_out = 120000;
 
+export default defineConfig({
+  timeout: 120000, // ⏱ apply to all tests
+  use: {
+    actionTimeout: 0, // optional: disables action timeout
+    navigationTimeout: 120000,
+  },
+});
+
 // פונקציית עזר לשליפת המחיר הנכון מהווריאציה
 async function getVariationPrice(page) {
   await page.setDefaultTimeout(time_out);
@@ -12,6 +20,7 @@ async function getVariationPrice(page) {
 
 // ✅ סטאר X – מידה 57 (ברירת מחדל) + אגוז => ₪ 1,990
 test('סטאר X – רק בחירת צבע אגוז (מידה כבר מסומנת 57) => מחיר 1,990 ש"ח', async ({ page }) => {
+	test.setTimeout(120000);
   await page.setDefaultTimeout(time_out);
   await page.goto('https://star.co.il/product/%d7%9e%d7%90%d7%95%d7%95%d7%a8%d7%a8-%d7%aa%d7%a7%d7%a8%d7%94-%d7%a1%d7%98%d7%90%d7%a8-x/');
   await page.waitForLoadState('networkidle');
@@ -28,6 +37,7 @@ test('סטאר X – רק בחירת צבע אגוז (מידה כבר מסומנ
 
 // ✅ סטאר X – צבע שחור + מידה 48 => ₪ 1,199
 test('סטאר X – שחור ואז מידה 48 => מחיר 1,199 ש"ח', async ({ page }) => {
+	test.setTimeout(120000);
   await page.setDefaultTimeout(time_out);
   await page.goto('https://star.co.il/product/%d7%9e%d7%90%d7%95%d7%95%d7%a8%d7%a8-%d7%aa%d7%a7%d7%a8%d7%94-%d7%a1%d7%98%d7%90%d7%a8-x/');
   await page.waitForLoadState('networkidle');
@@ -49,6 +59,7 @@ test('סטאר X – שחור ואז מידה 48 => מחיר 1,199 ש"ח', async
 
 // ✅ סטאר 7 – מידה 52 (צבע שחור מסומן כברירת מחדל) => ₪ 1,200
 test('סטאר 7 – מידה 52 עם צבע כבר מסומן => מחיר 1,200 ש"ח', async ({ page }) => {
+	test.setTimeout(120000);
   await page.setDefaultTimeout(time_out);
   await page.goto('https://star.co.il/product/%d7%9e%d7%90%d7%95%d7%95%d7%a8%d7%a8-%d7%aa%d7%a7%d7%a8%d7%94-%d7%a1%d7%98%d7%90%d7%a8-7/');
   await page.waitForLoadState('networkidle');
